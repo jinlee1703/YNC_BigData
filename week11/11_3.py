@@ -5,11 +5,11 @@ import pandas as pd
 feature_name_df = pd.read_csv('UCI HAR Dataset/features.txt', sep='\s+', header=None, names=['index', 'featue_name'], engine='python')
 feature_name = feature_name_df.iloc[:, 1].values.tolist()
 
-X_train = pd.read_csv('UCI HAR Dataset/train/X_train.txt', sep='\s+', header=None, names='featue_name', engine='python')
-X_test = pd.read_csv('UCI HAR Dataset/test/X_test.txt', sep='\s+', header=None, names='featue_name', engine='python')
+X_train = pd.read_csv('UCI HAR Dataset/train/X_train.txt', sep='\s+', names=feature_name, engine='python')
+X_test = pd.read_csv('UCI HAR Dataset/test/X_test.txt', sep='\s+', names=feature_name, engine='python')
 
-Y_train = pd.read_csv('UCI HAR Dataset/train/y_train.txt', sep='\s+', header=None, names='featue_name', engine='python')
-Y_test = pd.read_csv('UCI HAR Dataset/test/y_test.txt', sep='\s+', header=None, names='featue_name', engine='python')
+Y_train = pd.read_csv('UCI HAR Dataset/train/y_train.txt', sep='\s+', header=None, names=['action'], engine='python')
+Y_test = pd.read_csv('UCI HAR Dataset/test/y_test.txt', sep='\s+', header=None, names=['action'], engine='python')
 
 label_name_df = pd.read_csv('UCI HAR Dataset/activity_labels.txt', sep='\s+', header=None, names=['index', 'label'], engine='python')
 label_name = label_name_df.iloc[:, 1].values.tolist()
